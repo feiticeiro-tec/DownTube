@@ -57,19 +57,18 @@ def url_download():
             video = YouTube(url)
             if format_output == 'mp3':
                 save_in_output(video.streams.filter(only_audio=True).first())
+                filename = video.title+'mp3' if video.title[-1] == '.' else video.title+'.mp3'
                 if video.title[-1] == '.':
-                    filename = video.title+'mp3'
                     os.rename(app.output+video.title+'mp4', app.output+filename)
                 else:
-                    filename = video.title+'.mp3'
                     os.rename(app.output+video.title+'.mp4', app.output+filename)
                     
 
             elif resolution:
-                filename = app.output+video.title+'.mp4'
+                filename = video.title+'mp4' if video.title[-1] == '.' else video.title+'.mp4'
                 save_in_output(video.streams.get_highest_resolution())
             else:
-                filename = app.output+video.title+'.mp4'
+                filename = video.title+'mp4' if video.title[-1] == '.' else video.title+'.mp4'
                 save_in_output(video.streams.get_lowest_resolution())
             
             data = {
