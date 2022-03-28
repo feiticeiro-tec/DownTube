@@ -2,13 +2,15 @@
 
 {% block Head %}
     <link rel="stylesheet" href="{{url_for('static',filename='css/download.css')}}">
+    <!-- Tudo Que Fica No HEAD -->
 {% endblock %}
 
 {% block Body %}
-
+    <!-- Tudo Que Fica No BODY -->
 {% endblock %}
 
 {% block Footer %}
+    <!-- Aqui Fica Os Js Q São Executado Por Ultimo -->
     <script src="{{url_for('static',filename='js/download.js')}}"></script>
 {% endblock %}
 
