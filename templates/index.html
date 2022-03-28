@@ -1,14 +1,14 @@
-{% extends 'base.html' %}
+{% extends base.html %}
 
 {% block Head %}
-
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
 {% endblock %}
 
 {% block Body %}
-    
+
 {% endblock %}
 
 {% block Footer %}
-
+    <script src="{{url_for('static',filename='js/index.js')}}"></script>
 {% endblock %}
 

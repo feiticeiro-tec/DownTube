@@ -1,7 +1,7 @@
 {% extends base.html %}
 
 {% block Head %}
-
+    <link rel="stylesheet" href="{{url_for('static',filename='css/download.css')}}">
 {% endblock %}
 
 {% block Body %}
@@ -9,6 +9,6 @@
 {% endblock %}
 
 {% block Footer %}
-
+    <script src="{{url_for('static',filename='js/download.js')}}"></script>
 {% endblock %}
 
