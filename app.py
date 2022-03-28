@@ -1,4 +1,5 @@
 from flask import Flask,render_template
+from pytube import YouTube
 
 app = Flask(__name__)
 
@@ -8,5 +9,5 @@ def index():
     return render_template('index.html')
 
 @app.route('/download')
-def url_download():
+def url_download(url):
     return render_template('download.html')
