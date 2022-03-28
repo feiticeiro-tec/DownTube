@@ -10,6 +10,8 @@ def number_to_string(number):
     if '.' in number:
         number = number[:number.rfind('.')] + ',' + number[number.rfind('.')+1:]
     return number
+def secunds_to_string_time(number):
+    return f'{number//60}:{number%60}'
 
 
 @app.route('/')
@@ -21,7 +23,7 @@ def url_download():
     url = request.args.get('url')
     if url:
         video = YouTube(url)
-        data = {'titulo':video.title,'thumbnail':video.thumbnail_url,'time':video.length,'data':str(video.publish_date),'views':number_to_string(video.views),'autor':video.author}
+        data = {'titulo':video.title,'thumbnail':video.thumbnail_url,'time':secunds_to_string_time(video.length),'data':str(video.publish_date),'views':number_to_string(video.views),'autor':video.author}
         return render_template('download.html',**data)
     else:
         return redirect(url_for('index'))
