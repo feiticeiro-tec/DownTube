@@ -11,9 +11,13 @@
     font-family: 'Rubik', sans-serif;
     outline: none;
 }
+html,body{
+    height: 100%;
+}
 
 .header{
-background-color: rgb(184, 184, 184);
+    background-color: rgb(184, 184, 184);
+    height: 65px;
 }
 
 .header-main{

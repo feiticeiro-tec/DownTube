@@ -1,6 +1,9 @@
+main{
+    height: calc(100% - 65px);
+    display: flex;
+}
 .download{
     text-align: center;
-    margin-top: 10%;
   }
   
 .download-link {
@@ -31,3 +34,7 @@
     margin: 0px 5px;
 }
   
+#box{
+    place-self: center;
+    margin: auto;
+}
