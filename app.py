@@ -82,7 +82,7 @@ def url_download():
                 'url_file':url_for('static',filename=f'source/{filename}')
                 }
             return render_template('download.html',**data)
-        except RegexMatchError:
+        except:
             abort(404,description='Not URL')
     else:
         return redirect(url_for('index'))
