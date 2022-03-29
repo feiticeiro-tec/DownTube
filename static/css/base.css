@@ -1,0 +1,70 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500;600&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: 'Rubik', sans-serif;
+    outline: none;
+}
+
+.header{
+background-color: rgb(184, 184, 184);
+}
+
+.header-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10%;
+    height: 65px;
+}
+
+.header-menu{
+    display: flex;
+    gap: 30%;
+    margin-right: 30px;
+}
+
+.header-item{
+    text-decoration: none;
+    letter-spacing: 3px;
+    color:rgb(0, 0, 0);
+    transition: 0.3s;
+    
+}
+
+.header-img{
+    height: 50px;
+    transition: .5s;
+}
+
+.header-img:hover{
+    height: 55px;
+}
+
+.header-item:hover{
+    color: rgb(70, 70, 70);
+}
+
+.download{
+  text-align: center;
+  margin-top: 10%;
+}
+
+.download-link {
+    width: 30em;
+    height: 40px;
+}
+
+.download-btn{
+    width: 5em;
+    height: 40px;
+    cursor: pointer;
+}
+
