@@ -1,3 +1,4 @@
 __pycache__
 .venv
-source/*
+static/source/*.mp3
+static/source/*.mp4
