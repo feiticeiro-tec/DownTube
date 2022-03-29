@@ -92,3 +92,7 @@ def url_download():
             abort(404,description='Not URL')
     else:
         return redirect(url_for('index'))
+
+@app.route('/sobre')
+def sobre():
+    return render_template('sobre.html')
