@@ -47,7 +47,7 @@ def download(url,resolution,format_output):
                 video.streams.get_highest_resolution().download(app.output)
             else:
                 video.streams.get_lowest_resolution().download(app.output)
-        return True,video
+        return filename,video
     except:
         return False,None
 

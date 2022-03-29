@@ -3,15 +3,31 @@
     margin-top: 10%;
   }
   
-  .download-link {
-      width: 30em;
-      height: 40px;
-  }
-  
-  .download-btn{
-      width: 5em;
-      height: 40px;
-      cursor: pointer;
-  }
-  
+.download-link {
+    width: 30em;
+    height: 40px;
+}
+
+.download-btn{
+    width: 5em;
+    height: 40px;
+    cursor: pointer;
+}
+
+#format{
+    display: flex;
+}
+#resolution{
+    display: flex;
+}
+#options{
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
+    margin: auto;
+}
+#options input{
+    place-self: center;
+    margin: 0px 5px;
+}
   

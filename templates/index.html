@@ -8,10 +8,27 @@
 {% block Body %}
     <!-- Tudo Que Fica No BODY -->
     <main class="main">
-        <form class="download">
-            <input class="download-link" type="link">
-            <button class="download-btn">BAIXAR</button>
-        </form>
+        <div class="download">
+            <input class="download-link" id="input_url" type="link">
+            <button class="download-btn" id="procurar">BAIXAR</button>
+        </div>
+        <div id="options">
+            
+                <p>Formato:</p>
+                <div id="format" >
+                    <input type="radio" name="format" checked><p>mp4</p>
+                    <input type="radio" name="format" ><p>mp3</p>
+                </div>
+            
+            
+                <p>Qualidade:</p>
+                <div id="resolution" >
+                    <input type="radio" name="resolution" ><p>alta</p>
+                    <input type="radio" name="resolution" checked><p>baixa</p>
+                </div>
+            
+        </div>
+        
 
     </main>
 
