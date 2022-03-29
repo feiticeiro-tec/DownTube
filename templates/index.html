@@ -1,42 +1,45 @@
 {% extends 'base.html' %}
 
 {% block Head %}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-    <!-- Tudo Que Fica No HEAD -->
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+<!-- Tudo Que Fica No HEAD -->
 {% endblock %}
 
 {% block Body %}
-    <!-- Tudo Que Fica No BODY -->
-    <main class="main">
-        <div class="download">
-            <input class="download-link" id="input_url" type="link">
-            <button class="download-btn" id="procurar">BAIXAR</button>
-        </div>
-        <div id="options">
-            
-                <p>Formato:</p>
-                <div id="format" >
-                    <input type="radio" name="format" checked><p>mp4</p>
-                    <input type="radio" name="format" ><p>mp3</p>
-                </div>
-            
-            
-                <p>Qualidade:</p>
-                <div id="resolution" >
-                    <input type="radio" name="resolution" ><p>alta</p>
-                    <input type="radio" name="resolution" checked><p>baixa</p>
-                </div>
-            
-        </div>
-        
+<!-- Tudo Que Fica No BODY -->
+<main class="main">
+    <div class="download">
+        <input class="download-link" id="input_url" type="link">
+        <button class="download-btn" id="procurar">BAIXAR</button>
+    </div>
+    <div id="options">
 
-    </main>
+        <p>Formato:</p>
+        <div id="format">
+            <input type="radio" name="format" checked>
+            <p>mp4</p>
+            <input type="radio" name="format">
+            <p>mp3</p>
+        </div>
 
-    <footer class="footer"></footer>
+
+        <p>Qualidade:</p>
+        <div id="resolution">
+            <input type="radio" name="resolution">
+            <p>alta</p>
+            <input type="radio" name="resolution" checked>
+            <p>baixa</p>
+        </div>
+
+    </div>
+
+
+</main>
+
+<footer class="footer"></footer>
 {% endblock %}
 
 {% block Footer %}
-    <!-- Aqui Fica Os Js Q São Executado Por Ultimo -->
-    <script src="{{url_for('static',filename='js/index.js')}}"></script>
+<!-- Aqui Fica Os Js Q São Executado Por Ultimo -->
+<script src="{{url_for('static',filename='js/index.js')}}"></script>
 {% endblock %}
-
