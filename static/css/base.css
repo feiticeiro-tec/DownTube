@@ -52,19 +52,3 @@ background-color: rgb(184, 184, 184);
     color: rgb(70, 70, 70);
 }
 
-.download{
-  text-align: center;
-  margin-top: 10%;
-}
-
-.download-link {
-    width: 30em;
-    height: 40px;
-}
-
-.download-btn{
-    width: 5em;
-    height: 40px;
-    cursor: pointer;
-}
-
