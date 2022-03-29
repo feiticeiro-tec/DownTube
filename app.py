@@ -31,6 +31,26 @@ def secunds_to_string_time(number):
 def save_in_output(file):
     file.download(app.output)
 
+def download(url,resolution,format_output):
+    try:
+        video = YouTube(url)
+        filename = video.title+format_output if video.title[-1] == '.' else f'{video.title}.{format_output}'
+
+        if format_output == 'mp3':
+            video.streams.filter(only_audio=True).first().download(app.output)
+            if video.title[-1] == '.':
+                os.rename(app.output+video.title+'mp4', app.output+filename)
+            else:
+                os.rename(app.output+video.title+'.mp4', app.output+filename)
+        else:
+            if resolution:
+                video.streams.get_highest_resolution().download(app.output)
+            else:
+                video.streams.get_lowest_resolution().download(app.output)
+        return video
+    except:
+        return False
+
 #__________ ROUTES ___________
 
 @app.errorhandler(404)
@@ -56,22 +76,8 @@ def url_download():
         resolution = False
 
     if url:
-        try:
-            video = YouTube(url)
-            if format_output == 'mp3':
-                video.streams.filter(only_audio=True).first().download(app.output)
-                filename = video.title+'mp3' if video.title[-1] == '.' else video.title+'.mp3'
-                if video.title[-1] == '.':
-                    os.rename(app.output+video.title+'mp4', app.output+filename)
-                else:
-                    os.rename(app.output+video.title+'.mp4', app.output+filename)
-            else:
-                filename = video.title+'mp4' if video.title[-1] == '.' else video.title+'.mp4'
-                if resolution:
-                    video.streams.get_highest_resolution().download(app.output)
-                else:
-                    video.streams.get_lowest_resolution().download(app.output)
-            
+        filename,video = download(url,resolution,format_output)
+        if filename:
             data = {
                 'titulo':video.title,
                 'thumbnail':video.thumbnail_url,
@@ -82,7 +88,7 @@ def url_download():
                 'url_file':url_for('static',filename=f'source/{filename}')
                 }
             return render_template('download.html',**data)
-        except:
+        else:
             abort(404,description='Not URL')
     else:
         return redirect(url_for('index'))
