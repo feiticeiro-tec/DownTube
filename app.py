@@ -84,11 +84,3 @@ def url_download():
             abort(404,description='Not URL')
     else:
         return redirect(url_for('index'))
-
-@app.route('/download/<file_name>')
-def download_file(file_name):
-    path = f'{os.path.dirname(__file__)}/static/source/{file_name}'
-    if os.path.isfile(path):
-        return redirect(url_for('static',filename=f'source/{file_name}'))
-    else:
-        abort(404,description='Not File')
