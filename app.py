@@ -49,7 +49,7 @@ def download(url,resolution,format_output):
                 video.streams.get_lowest_resolution().download(app.output)
         return filename,video
     except:
-        return False,None
+        return None,None
 
 #__________ ROUTES ___________
 
