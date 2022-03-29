@@ -1,4 +1,12 @@
-from flask import Flask,render_template,request,redirect,url_for,abort,session
+from flask import (
+    render_template,
+    redirect,
+    request,
+    url_for,
+    session,
+    Flask,
+    abort
+    )
 from pytube import YouTube
 from pytube.exceptions import RegexMatchError
 import os
@@ -29,8 +37,6 @@ def save_in_output(file):
 def page_not_found(e):
     if str(e) == '404 Not Found: Not URL':
         return render_template('404.html',message='Url Não Encontrada!'),404
-    elif str(e) == '404 Not Found: Not File':
-        return render_template('404.html',message='Arquivo Expirado'),404
     else:
         return render_template('404.html',message='Pagina Não Encontrada!'),404
         
@@ -42,13 +48,10 @@ def index():
 def url_download():
     url = request.args.get('url')
     resolution = request.args.get('resolution') #highest or if lower
-    format_output = 'mp3' if request.args.get('format')=='mp3' else 'mp4' #highest or if lower
+    format_output = 'mp3' if request.args.get('format')=='mp3' else 'mp4' 
     
-    if resolution:
-        if resolution == 'highest':
-            resolution = True
-        else:
-            resolution = False
+    if resolution and resolution == 'highest':
+        resolution = True
     else:
         resolution = False
 
@@ -56,20 +59,18 @@ def url_download():
         try:
             video = YouTube(url)
             if format_output == 'mp3':
-                save_in_output(video.streams.filter(only_audio=True).first())
+                video.streams.filter(only_audio=True).first().download(app.output)
                 filename = video.title+'mp3' if video.title[-1] == '.' else video.title+'.mp3'
                 if video.title[-1] == '.':
                     os.rename(app.output+video.title+'mp4', app.output+filename)
                 else:
                     os.rename(app.output+video.title+'.mp4', app.output+filename)
-                    
-
-            elif resolution:
-                filename = video.title+'mp4' if video.title[-1] == '.' else video.title+'.mp4'
-                save_in_output(video.streams.get_highest_resolution())
             else:
                 filename = video.title+'mp4' if video.title[-1] == '.' else video.title+'.mp4'
-                save_in_output(video.streams.get_lowest_resolution())
+                if resolution:
+                    video.streams.get_highest_resolution().download(app.output)
+                else:
+                    video.streams.get_lowest_resolution().download(app.output)
             
             data = {
                 'titulo':video.title,
@@ -78,7 +79,8 @@ def url_download():
                 'data':str(video.publish_date),
                 'views':number_to_string(video.views),
                 'autor':video.author,
-                'url_file':url_for('static',filename=f'source/{filename}')}
+                'url_file':url_for('static',filename=f'source/{filename}')
+                }
             return render_template('download.html',**data)
         except RegexMatchError:
             abort(404,description='Not URL')
