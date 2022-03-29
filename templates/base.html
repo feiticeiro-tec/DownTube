@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{url_for('static',filename='css/base.css')}}">
 
+=======
+    <link rel="stylesheet" href="static/css/base.css">
+>>>>>>> 88b457dfeae6e2302c8d15ebc8a858edc9651707
     <title>DownTube</title>
     {%block Head%}{% endblock %}
 </head>
@@ -14,18 +18,26 @@
 <body>
     <header class="header">
         <nav class="header-main">
-            <a href="/"><img class="header-img" src="{{url_for('static',filename='img/logo.png')}}" alt=""></a>
+            <a href="/"><img class="header-img" src="static/img/logo.png" alt=""></a>
             <label for="click">
             </label>
             <ul class="header-menu">
-                <li><a class="header-item" href="{{url_for('index')}}">Inicio</a></li>
                 <li><a class="header-item" href="#">GitHub</a></li>
-                <li><a class="header-item" href="{{url_for('sobre')}}">Sobre</a></li>
+                <li><a class="header-item" href="#">Sobre</a></li>
             </ul>
 
         </nav>
     </header>
 
+    <main class="main">
+        <form class="download">
+            <input class="download-link" type="link">
+            <button class="download-btn">BAIXAR</button>
+        </form>
+
+    </main>
+
+    <footer class="footer"></footer>
     {%block Body%}{% endblock %}
     {%block Footer%}{% endblock %}
 </body>
