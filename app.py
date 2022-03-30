@@ -34,14 +34,15 @@ def save_in_output(file):
 def download(url,resolution,format_output):
     try:
         video = YouTube(url)
-        filename = video.title+format_output if video.title[-1] == '.' else f'{video.title}.{format_output}'
+        filename = video.title.replace('.','')
+        filename = filename+format_output if filename[-1] == '.' else f'{filename}.{format_output}'
 
         if format_output == 'mp3':
             video.streams.filter(only_audio=True).first().download(app.output)
             if video.title[-1] == '.':
-                os.rename(app.output+video.title+'mp4', app.output+filename)
+                os.rename(app.output+video.title.replace('.','')+'mp4', app.output+filename)
             else:
-                os.rename(app.output+video.title+'.mp4', app.output+filename)
+                os.rename(app.output+video.title.replace('.','')+'.mp4', app.output+filename)
         else:
             if resolution:
                 video.streams.get_highest_resolution().download(app.output)
