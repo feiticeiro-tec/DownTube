@@ -17,13 +17,20 @@
     {{views}}
     {{autor}}
     -->
-    <p>Titulo: {{titulo}}</p>
-    <img src="{{thumbnail}}" alt="">
-    <p>Time: {{time}}</p>
-    <p>Data: {{data}}</p>
-    <p>Views: {{views}}</p>
-    <p>Autor: {{autor}}r</p>
-    <a href="{{url_file}}" download>Download</a>
+    <main>
+        <div id="card-video">
+            
+            <img src="{{thumbnail}}" alt="">
+            <div>
+                <p>Titulo: {{titulo}}</p>
+                <p>Time: {{time}}</p>
+                <p>Data: {{data}}</p>
+                <p>Views: {{views}}</p>
+                <p>Autor: {{autor}}</p>
+                <a href="{{url_file}}" download>Download</a>
+            </div>
+        </div>
+    </main>
 
 {% endblock %}
 

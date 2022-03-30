@@ -17,7 +17,7 @@ html,body{
 
 .header{
     background-color: rgb(184, 184, 184);
-    height: 65px;
+    height: 52px;
 }
 
 .header-main{
@@ -26,7 +26,7 @@ html,body{
     justify-content: space-around;
     align-items: center;
     gap: 10%;
-    height: 65px;
+    height: inherit;
 }
 
 .header-menu{
@@ -55,3 +55,4 @@ html,body{
 .header-item:hover{
     color: rgb(70, 70, 70);
 }
+

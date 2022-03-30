@@ -1,0 +1,23 @@
+html{
+
+    background-color: gray;
+}
+#card-video{
+    width: fit-content;
+    margin: auto;
+    display: flex;
+}
+#card-video img{
+    height: 250px;
+}
+#card-video > div{
+    padding: 7px;
+    color:white;
+}
+#card-video > div a{
+    color:yellow;
+}
+main{
+    height: calc(100% - 65px);
+    display: flex;
+}
